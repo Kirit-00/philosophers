@@ -6,22 +6,38 @@
 /*   By: maltun <maltun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 03:11:28 by maltun            #+#    #+#             */
-/*   Updated: 2023/09/20 03:18:42 by maltun           ###   ########.fr       */
+/*   Updated: 2023/09/25 20:07:29 by maltun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count)
 {
 	void	*ret;
 
-	ret = malloc(size * count);
+	ret = malloc(count);
 	if (!ret)
 		return (0);
-	while ((count * size)--)
+	while (count--)
 		*(unsigned char *)ret++ = 0;
 	return (ret);
+}
+
+int	ft_isnumeric(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		if (!(str[i] <= '9' && str[i] >= '0'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	ft_atoi(char *str)
@@ -33,6 +49,8 @@ int	ft_atoi(char *str)
 	i = 0;
 	neg = 1;
 	num = 0;
+	if (!str)
+		return (0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -47,4 +65,15 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (num * neg);
+}
+
+void	ft_error_exit(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str && str[i])
+		write(2, &str[i++], 1);
+	write(2, "\n", 1);
+	exit(2);
 }

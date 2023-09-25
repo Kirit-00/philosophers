@@ -6,13 +6,13 @@
 #    By: maltun <maltun@student.42istanbul.com.t    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 01:54:55 by maltun            #+#    #+#              #
-#    Updated: 2023/09/20 03:13:34 by maltun           ###   ########.fr        #
+#    Updated: 2023/09/25 19:47:55 by maltun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=thread
 
 PHILO_SRC = philo.c philo_utils.c
 
