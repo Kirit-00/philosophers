@@ -14,14 +14,16 @@
 
 void	*ft_calloc(size_t count)
 {
+	void	*start;
 	void	*ret;
 
 	ret = malloc(count);
+	start = ret;
 	if (!ret)
 		return (0);
 	while (count--)
 		*(unsigned char *)ret++ = 0;
-	return (ret);
+	return (start);
 }
 
 int	ft_isnumeric(char *str)
@@ -69,7 +71,7 @@ int	ft_atoi(char *str)
 
 void	ft_error_exit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str && str[i])

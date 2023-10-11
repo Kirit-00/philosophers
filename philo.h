@@ -25,6 +25,7 @@ typedef struct s_data
 	int	philo_tte;
 	int	philo_tts;
 	int	each_time_tte;
+	int	use_each_time;
 }	t_data;
 
 int		ft_atoi(char *str);

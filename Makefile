@@ -27,7 +27,7 @@ MAGENTA=\033[35m
 RESET=\033[0m
 
 all: title $(NAME)
-	@echo "$(GREEN)****** Philosophers Compiled Succesfuly ******"
+	@echo "$(GREEN)****** Philosophers Compiled Succesfuly ******$(RESET)"
 
 title:
 	@clear
@@ -49,7 +49,7 @@ $(NAME): $(OBJ)
 
 clean: title
 	@rm -rf $(OBJ)
-	@echo "$(GREEN)****** Cleaned ******"
+	@echo "$(GREEN)****** Cleaned ******$(RESET)"
 
 fclean: clean
 	@rm -f philo
