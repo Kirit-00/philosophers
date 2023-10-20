@@ -42,11 +42,11 @@ int	ft_isnumeric(char *str)
 	return (1);
 }
 
-int	ft_atoi(char *str)
+long	ft_atol(char *str)
 {
-	int	neg;
-	int	i;
-	int	num;
+	long	neg;
+	long	i;
+	long	num;
 
 	i = 0;
 	neg = 1;
@@ -67,6 +67,16 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (num * neg);
+}
+
+t_time	ft_get_time(void)
+{
+	struct timeval		tv;
+	unsigned long long	time;
+
+	gettimeofday(&tv, NULL);
+	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return (time);
 }
 
 void	ft_error_exit(char *str)
