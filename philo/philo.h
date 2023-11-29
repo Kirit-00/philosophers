@@ -6,7 +6,7 @@
 /*   By: maltun <maltun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:03:45 by maltun            #+#    #+#             */
-/*   Updated: 2023/10/26 15:10:08 by maltun           ###   ########.fr       */
+/*   Updated: 2023/11/01 14:24:35 by maltun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_philo
 	t_time			start_time;
 	pthread_t		thread;
 	pthread_mutex_t	*death;
+	pthread_mutex_t	*print;
 	pthread_mutex_t	*left_fork_mutex;
 	pthread_mutex_t	*right_fork_mutex;
 }t_philo;

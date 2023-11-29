@@ -6,7 +6,7 @@
 /*   By: maltun <maltun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:01:28 by maltun            #+#    #+#             */
-/*   Updated: 2023/10/26 20:29:24 by maltun           ###   ########.fr       */
+/*   Updated: 2023/11/01 14:28:56 by maltun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_philo_check(t_philo *philo)
 
 void	ft_philo_print(t_philo *philo, char *str, int kill)
 {
-	pthread_mutex_lock(philo->death);
+	pthread_mutex_lock(philo->print);
 	if (!*philo->dead_check)
 	{
 		printf("%s%llu%s %s%d%s %s%s%s\n", "\033[4;31m", ft_get_time() \
@@ -52,7 +52,7 @@ void	ft_philo_print(t_philo *philo, char *str, int kill)
 		if (kill)
 			*philo->dead_check = 1;
 	}
-	pthread_mutex_unlock(philo->death);
+	pthread_mutex_unlock(philo->print);
 	ft_philo_check(philo);
 }
 
@@ -65,7 +65,7 @@ int	ft_philo_wait(t_philo *philo, t_time time_ag)
 	{
 		if (ft_philo_check(philo))
 			return (1);
-		usleep(50);
+		usleep(100);
 	}
 	return (0);
 }

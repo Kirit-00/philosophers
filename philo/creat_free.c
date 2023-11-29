@@ -6,7 +6,7 @@
 /*   By: maltun <maltun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:01:36 by maltun            #+#    #+#             */
-/*   Updated: 2023/10/26 16:46:38 by maltun           ###   ########.fr       */
+/*   Updated: 2023/11/01 14:28:10 by maltun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ void	ft_init_args(t_philo *philo, int ac, char *av[])
 void	create_mutex(t_philo *philo, pthread_mutex_t *forks, \
 		pthread_mutex_t *death)
 {
-	int	i;
+	int				i;
+	pthread_mutex_t	*p;
 
+	p = ft_calloc(sizeof(pthread_mutex_t));
 	i = 0;
 	while (i < philo->total_philo)
 	{
@@ -80,9 +82,11 @@ void	create_mutex(t_philo *philo, pthread_mutex_t *forks, \
 		pthread_mutex_init(philo[i].left_fork_mutex, NULL);
 		pthread_mutex_init(philo[i].right_fork_mutex, NULL);
 		philo[i].death = death;
+		philo[i].print = p;
 		i++;
 	}
 	pthread_mutex_init(philo->death, NULL);
+	pthread_mutex_init(philo->print, NULL);
 }
 
 void	ft_free(t_philo *philo, pthread_mutex_t *forks, pthread_mutex_t *death)
