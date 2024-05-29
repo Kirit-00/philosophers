@@ -1,0 +1,2 @@
+## Proje Açıklaması
+Philosophers projesi, çoklu iş parçacığı ve senkronizasyon kavramlarını anlamaları ve uygulamaları amacıyla geliştirilen bir projedir. Bu proje, klasik "Düşünen Filozoflar Problemi"ni çözmeyi hedefler. Problemde, bir grup filozof hem düşünmekte hem de yemek yemektedir, ancak yemek yiyebilmek için ortak çatal(lar)ı kullanmaları gerekmektedir. Bu da kaynakların yönetimi ve senkronizasyon konularını içermektedir.
